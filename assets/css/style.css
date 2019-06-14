@@ -1336,13 +1336,34 @@ button.close:hover{
   line-height: 52px;
   outline: none;
 }
-.modal-body button{
-  width: 285px;
+.logo {
+  display: flex;
+  flex-direction: column
+}
+
+footer .logo span {
+  color: #000
+}
+
+.logo span {
+  line-height: 1;
+}
+
+.logo-title {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  display: block;
+  text-align: center;
+}
+.modal-body button {
+  width: 300px;
   line-height: 52px;
   background-color: #ffffff;
   color: #2850a7;
   font-family: Futura Book C;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   text-transform: uppercase;
   background-image: none;
