@@ -385,10 +385,11 @@ main .services{
 }
 .services-list .single-service .link{
   position: relative;
-  height: 200px;
+  height: 180px;
   overflow: hidden;
   text-align: center;
 }
+
 .services-list .single-service .link .more-info, .our-project-slider .single-project-slider .more-info{
   position: absolute;
   top: 0px;
@@ -2397,14 +2398,20 @@ ul.pagination .disabled{
     width: 75%;
   }
   .nav .calc-price{
-    width: 25%;
+    width: 300px !important;
   }
   .project-gallery .slick-next{
     right: calc(50% - 310px);
   }
   .project-gallery .slick-prev{
     left: calc(50% - 310px);
-  }
+	}
+	.menu {
+		width: 100% !important;
+	}
+	.menu > div {
+		margin: 0 auto;
+	}
 }
 @media only screen and (max-width: 1024px) {
   .services-list .service-name{
@@ -2697,7 +2704,11 @@ ul.pagination .disabled{
   }
   .single-project:nth-child(2n) > .col-sm-5{
     float: none;
-  }
+	}
+	
+	.services-list .col-sm-3 {
+		width: 50% !important;
+	}
 }
 @media only screen and (max-width: 568px) {
   .heading-top .logo{
@@ -3063,4 +3074,14 @@ ul.pagination .disabled{
 }
 .menu_ins li a:hover {
     text-decoration:none;
+}
+
+.phones {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.services-list .single-service .link img {
+	width: 100%;
+	height: auto;
 }
