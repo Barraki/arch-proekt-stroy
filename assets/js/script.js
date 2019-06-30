@@ -132,22 +132,6 @@ $(document).ready(function(){
   });
 
 
-  $('.slider-horizontal').on('mouseup ontouchend ontouchmove', function(){
-    var min_area = $('.min-slider-handle', this).attr('aria-valuenow');
-    var max_area = $('.max-slider-handle', this).attr('aria-valuenow');
-    var page_id = $('.area-filter').attr('data-current-page');
-    $.ajax({
-        method: "POST",
-        url: "",
-        data: {min_area : min_area, max_area : max_area, page_id : page_id},
-        success: function(result){
-          $('#projects-list').html(result);
-          $('.pagination').addClass('hidden');
-          $('.pagination-back-forward').addClass('hidden');
-        }
-    });
-  });
-
 
   $('.file input').on('change', function(){
     var file = $(this)[0].files[0].name;
@@ -155,7 +139,7 @@ $(document).ready(function(){
   });
 
   $('a').click((event) => {
-    event.preventDefault()
+    event.preventDefault();
   })
 
 });
@@ -176,3 +160,26 @@ $(document).on('scroll', function(){
 if($('.inside-header .back a').length && $('.inside-header .back a').attr('href') == '0'){
   $('.inside-header .back a').attr('href', '/');
 }
+
+
+  //E-mail Ajax Send
+	$('form').submit(function () { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "../../controllers/mail.php", //Change
+			data: th.serialize(),
+			beforeSend: function () {
+			}
+		}).done(function () {
+			setTimeout(function () {
+				// Done Functions
+				th.trigger("reset");
+			}, 1000);
+		}).fail(function () {
+			alert("Ошибка отправки, попробуйте позже")
+		});
+		return false;
+	});
+	
+	//E-mail Ajax Send
