@@ -52,23 +52,7 @@ $(document).ready(function(){
     $('.projects-list').addClass('in-row');
   });
 
-  // gallery slider
-  $('.project-gallery').slick({
-    centerMode: true,
-    centerPadding: '0px',
-    slidesToShow: 3,
-    swipe: false,
-    prevArrow: '<button type="button" class="slick-prev"></button>',
-    nextArrow: '<button type="button" class="slick-next"></button>',
-  });
 
-  $('.slick-arrow').on('click', function(){
-    $('.slick-arrow').css('opacity', 0);
-    $('.gallery-digit .active-slick-img').text($('.slick-current .img-wrap').attr('data-number'));
-    setTimeout(function(){
-      $('.slick-arrow').css('opacity', 1);
-    }, 500)
-  });
 
   if($('.gallery-digit').length){
     var slides_n = 0;
@@ -85,38 +69,6 @@ $(document).ready(function(){
     $('.gallery-digit .slick-img-number').text(slides_n);
   }
 
-  // about us page slider
-  $('.our-project-slider').slick({
-    centerPadding: '15px',
-    slidesToShow: 4,
-    prevArrow: '<button type="button" class="slick-prev"></button>',
-    nextArrow: '<button type="button" class="slick-next"></button>',
-    responsive: [{
-
-      breakpoint: 769,
-      settings: {
-        slidesToShow: 3,
-        infinite: true
-      }
-
-    }, {
-
-      breakpoint: 568,
-      settings: {
-        slidesToShow: 1,
-        infinite: true
-      }
-
-    }]
-  });
-
-  $('.like-dot-slick').on('click',function(){
-    if(!$(this).hasClass('active')){
-      $('.our-project-slider').slick('slickGoTo', $(this).attr('data-q-slide'));
-      $('.like-dot-slick').removeClass('active');
-      $(this).addClass('active');
-    }
-  });
 
   if($(window).width() <= 568){
     $('table').wrap('<div class="scroll-table"></div>');
@@ -161,25 +113,22 @@ if($('.inside-header .back a').length && $('.inside-header .back a').attr('href'
   $('.inside-header .back a').attr('href', '/');
 }
 
-
-  //E-mail Ajax Send
-	$('form').submit(function () { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "../../controllers/mail.php", //Change
-			data: th.serialize(),
-			beforeSend: function () {
-			}
-		}).done(function () {
-			setTimeout(function () {
-				// Done Functions
-				th.trigger("reset");
-			}, 1000);
-		}).fail(function () {
-			alert("Ошибка отправки, попробуйте позже")
-		});
-		return false;
+ //E-mail Ajax Send
+ $('form').submit(function () { //Change
+	var th = $(this);
+	$.ajax({
+		type: "POST",
+		url: "/controllers\mail.php", //Change
+		data: th.serialize(),
+		beforeSend: function () {
+		}
+	}).done(function () {
+		setTimeout(function () {
+			// Done Functions
+			th.trigger("reset");
+		}, 1000);
+	}).fail(function () {
+		alert("Ошибка отправки, попробуйте позже")
 	});
-	
-	//E-mail Ajax Send
+	return false;
+});

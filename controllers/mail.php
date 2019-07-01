@@ -3,13 +3,13 @@
 require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
+$txt;
+
+$name = $_POST['name'];
 
 $arr = array(
-  'Имя: ' =>  $_POST['name'],
-  'Телефон: ' => $_POST['phone'],
-  'Почта: ' => $_POST['email'],
-	'Дополнтельная информация' => $_POST['description'],
-	'Файл' => $_POST['file']
+  'Имя: ' =>  $name,
+
 );
 
 foreach($arr as $key => $value) {
@@ -32,7 +32,7 @@ $mail->addAddress('Barraki2015@yandex.ru');     // Кому будет уход�
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
 //$mail->addBCC('bcc@example.com');
-$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 

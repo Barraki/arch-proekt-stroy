@@ -16,13 +16,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
-  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/bootstrap-slider.min.js"></script>
-  <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="assets/js/script.js"></script>
 </head>
 
@@ -516,7 +514,7 @@
         <div class="modal-body">
           <div class="sub-heading">Відправте завдання на проектування та ми підготуємо для Вас коммерційну пропозицію
           </div>
-          <form role="form"  method="post"  class="ajax_form af_example">
+          <form action="/controllers/mail.php"  method="post"  class="ajax_form af_example">
             <div class="col-sm-6 contact-data">
               <div class="sub-heading">Ваші контактні дані*</div>
               <input type="text" name="name" value="" placeholder="Ваше ім'я" required>
